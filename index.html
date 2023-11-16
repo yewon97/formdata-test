@@ -8,7 +8,9 @@
 </head>
 
 <body>
-	<form name="frm" action="http://localhost:8080/formdata" method="post" onsubmit="return false;">
+	<!-- <form name="frm" action="http://localhost:8080/formdata" method="post"> -->
+	<form name="frm" action="http://localhost:8080/formdata" method="post" enctype="multipart/form-data">
+		<!-- <form name="frm" action="http://localhost:8080/formdata" method="post" onsubmit="return false;"> -->
 		<legend>Form Data 실습</legend>
 		<fieldset>
 			<div>
@@ -19,11 +21,11 @@
 				<label for="age">나이</label>
 				<input type="number" name="age" id="age" />
 			</div>
-			<!-- <div>
+			<div>
 				<label for="file">파일</label>
 				<input type="file" name="file" id="file" />
 			</div>
-			<div>
+			<!-- <div>
 				<label for="file-multi">파일</label>
 				<input type="file" name="file-multi" id="file-multi" multiple />
 			</div> -->
@@ -62,24 +64,24 @@
 	</script> -->
 
 	<script>
-		const FORM = document.forms.frm
+		// const FORM = document.forms.frm
 
-		const formData = new FormData();
-		formData.append('name', 'yewon');
-		formData.append('age', 4);
-		formData.append('type', '직장인');
-		document.querySelector('button[type=submit]').addEventListener('click', function () {
-			fetch('http://localhost:8080/formdata', {
-				method: "POST",
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-					// 'Content-Type': 'multipart/form-data',
-					// 'Content-Type': 'application/json',
-					// 'Content-Type': 'text/plain',
-				},
-				body: formData
-			})
-		})
+		// const formData = new FormData();
+		// formData.append('name', 'yewon');
+		// formData.append('age', 4);
+		// formData.append('type', '직장인');
+		// document.querySelector('button[type=submit]').addEventListener('click', function () {
+		// 	fetch('http://localhost:8080/formdata', {
+		// 		method: "POST",
+		// 		headers: {
+		// 			'Content-Type': 'application/x-www-form-urlencoded',
+		// 			// 'Content-Type': 'multipart/form-data',
+		// 			// 'Content-Type': 'application/json',
+		// 			// 'Content-Type': 'text/plain',
+		// 		},
+		// 		body: formData
+		// 	})
+		// })
 	</script>
 </body>
 
