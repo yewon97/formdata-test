@@ -17,9 +17,28 @@ app.use((req, res, next) => {
   next();
 });
 
-const upload = multer({
-  dest: __dirname + '/uploads/', // 이미지 업로드 경로
+// const upload = multer({
+//   dest: __dirname + '/uploads/', // 이미지 업로드 경로
+// });
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
 });
+const fileFilter = (req, file, cb) => {
+  // mime type 체크하여 이미지만 필터링
+  if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -73,6 +92,8 @@ app.post('/formdata', (req, res) => {
   res.end();
   // res.sendFile(__dirname + '/result.html');
 });
+
+app.use('/uploads', express.static('uploads'));
 
 // * 처리할 수 없는 경로에 대한 처리
 app.use((req, res, next) => {
