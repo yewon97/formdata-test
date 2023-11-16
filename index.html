@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>form data 실습</title>
+</head>
+
+<body>
+	<form action="http://localhost:8080/formdata" method="post">
+		<legend>Form Data 실습</legend>
+		<fieldset>
+			<div>
+				<label for="name">이름</label>
+				<input type="text" id="name" name="name" />
+			</div>
+			<div>
+				<label for="age">나이</label>
+				<input type="number" name="age" id="age" />
+			</div>
+			<!-- <div>
+				<label for="file">파일</label>
+				<input type="file" name="file" id="file" />
+			</div>
+			<div>
+				<label for="file-multi">파일</label>
+				<input type="file" name="file-multi" id="file-multi" multiple />
+			</div> -->
+		</fieldset>
+		<!-- <fieldset>
+			<div>
+				<label for="chk01">체크박스1</label>
+				<input type="checkbox" name="chkbox" id="chk01" value="1">
+				<label for="chk02">체크박스2</label>
+				<input type="checkbox" name="chkbox" id="chk02" value="2">
+				<label for="chk03">체크박스3</label>
+				<input type="checkbox" name="chkbox" id="chk03" value="3">
+				<label for="chk04">체크박스4</label>
+				<input type="checkbox" name="chkbox" id="chk04" value="4">
+			</div>
+		</fieldset>
+		<fieldset>
+			<div>
+				<label for="rdo01">라디오박스1</label>
+				<input type="radio" name="rdobox" id="rdo01" value="1">
+				<label for="rdo02">라디오박스2</label>
+				<input type="radio" name="rdobox" id="rdo02" value="2">
+				<label for="rdo03">라디오박스3</label>
+				<input type="radio" name="rdobox" id="rdo03" value="3">
+				<label for="rdo04">라디오박스4</label>
+				<input type="radio" name="rdobox" id="rdo04" value="4">
+			</div>
+		</fieldset> -->
+		<button type="submit">전송하기</button>
+	</form>
+
+	<!-- <script>
+		fetch('http://localhost:8080/test2', { method: 'GET' })
+			.then(console.log)
+			.catch(console.error);
+	</script> -->
+</body>
+
+</html>
