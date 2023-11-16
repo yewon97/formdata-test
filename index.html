@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<form action="http://localhost:8080/formdata" method="post">
+	<form name="frm" action="http://localhost:8080/formdata" method="post" onsubmit="return false;">
 		<legend>Form Data 실습</legend>
 		<fieldset>
 			<div>
@@ -60,6 +60,27 @@
 			.then(console.log)
 			.catch(console.error);
 	</script> -->
+
+	<script>
+		const FORM = document.forms.frm
+
+		const formData = new FormData();
+		formData.append('name', 'yewon');
+		formData.append('age', 4);
+		formData.append('type', '직장인');
+		document.querySelector('button[type=submit]').addEventListener('click', function () {
+			fetch('http://localhost:8080/formdata', {
+				method: "POST",
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+					// 'Content-Type': 'multipart/form-data',
+					// 'Content-Type': 'application/json',
+					// 'Content-Type': 'text/plain',
+				},
+				body: formData
+			})
+		})
+	</script>
 </body>
 
 </html>

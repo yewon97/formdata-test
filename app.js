@@ -5,6 +5,7 @@ import path from 'path';
 
 const app = express();
 const __dirname = path.resolve();
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
@@ -40,7 +41,8 @@ app.get('/test2', (req, res) => {
 
 app.post('/formdata', (req, res) => {
   console.log(req.body);
-  res.sendFile(__dirname + '/result.html');
+  res.end();
+  // res.sendFile(__dirname + '/result.html');
 });
 
 // * 처리할 수 없는 경로에 대한 처리
