@@ -1,6 +1,11 @@
 import express from 'express';
+import path from 'path';
+
+// import multer from 'multer';
 
 const app = express();
+const __dirname = path.resolve();
+app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://172.30.1.43:5500');
@@ -35,6 +40,7 @@ app.get('/test2', (req, res) => {
 
 app.post('/formdata', (req, res) => {
   console.log(req.body);
+  res.sendFile(__dirname + '/result.html');
 });
 
 // * 처리할 수 없는 경로에 대한 처리
